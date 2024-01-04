@@ -16,5 +16,12 @@ package-reinstall:
 lint:
 		poetry run flake8 gendiff
 
+test:
+	poetry run pytest
+
+check:
+	poetry run flake8 gen_diff
+	poetry run pytest
+
 gendiff:
 		poetry run gendiff
