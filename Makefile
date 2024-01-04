@@ -20,7 +20,7 @@ test:
 	poetry run pytest
 
 check:
-	poetry run flake8 gen_diff
+	poetry run flake8 gendiff
 	poetry run pytest
 
 gendiff:
