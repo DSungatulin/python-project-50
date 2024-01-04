@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{ include = "gendiff" },]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.8.1,<4.0"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.1.0"
