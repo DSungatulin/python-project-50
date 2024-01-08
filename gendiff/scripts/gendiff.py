@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 from gendiff.define_diff import generate_diff
-from gendiff import parser
+from gendiff.parser import parse_file
 
 
 def main():
-    first_file, second_file = parser.parse_file()
-    file_difference = generate_diff(first_file, second_file)
+    args = parse_file()
+    file_difference = generate_diff(args.first_file, args.second_file)
     return print(file_difference)
 
 
