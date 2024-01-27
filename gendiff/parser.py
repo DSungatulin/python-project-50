@@ -9,15 +9,19 @@ def parse_file():
     )
     parser.add_argument('first_file')
     parser.add_argument('second_file')
-    parser.add_argument('-f', '--format', help='set format of output')
-    args = parser.parse_args()
-    return args
+    parser.add_argument('-f', '--format', default='stylish',
+        choices=['stylish', 'plain', 'json'],
+        help='set format of output (default: \'stylish\')',
+    )
+    return parser.parse_args()
+
 
 def determine_file_format(filepath):
-    if filepath.endswith('json'):
-        data = json.load(open(filepath))
-    elif filepath.endswith('yml') or filepath.endswith('yaml'):
-        data = yaml.safe_load(open(filepath))
-    else:
-        raise ValueError("Invalid file format!")
-    return data
+    with open(filepath) as file:
+        if filepath.endswith('.json'):
+            data = json.load(file)
+        elif filepath.endswith('.yml') or filepath.endswith('.yaml'):
+            data = yaml.safe_load(file)
+        else:
+            raise TypeError("Invalid file format!")
+        return data
