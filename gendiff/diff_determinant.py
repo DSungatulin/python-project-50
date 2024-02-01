@@ -1,34 +1,7 @@
-# from gendiff.parser import determine_file_format
-
-
-# def generate_diff(filepath1, filepath2, format='stylish'):
-    
-#     file1_content = determine_file_format(filepath1)
-#     file2_content = determine_file_format(filepath2)
-    
-#     if isinstance(file1_content, str) or isinstance(file2_content, str):
-#         return 'File content is not in dictionary format'
-    
-#     keys = sorted(set(file1_content.keys()) | set(file2_content.keys()))
-#     diff_lines = []
-    
-#     for key in keys:
-#         if key not in file2_content:
-#             diff_lines.append(f'  - {key}: {file1_content[key]}')
-#         elif key not in file1_content:
-#             diff_lines.append(f'  + {key}: {file2_content[key]}')
-#         elif file1_content[key] != file2_content[key]:
-#             diff_lines.append(f'  - {key}: {file1_content[key]}')
-#             diff_lines.append(f'  + {key}: {file2_content[key]}')
-#         else:
-#             diff_lines.append(f'    {key}: {file1_content[key]}')
-#     return '{\n' + '\n'.join(diff_lines) + '\n}'
-
-
-def get_action(key_in_dict1, key_in_dict2, old_value, new_value):
-    if key_in_dict2 and not key_in_dict1:
+def get_action(dict1_key, dict2_key, old_value, new_value):
+    if dict2_key and not dict1_key:
         return 'ADDED'
-    if key_in_dict1 and not key_in_dict2:
+    if dict1_key and not dict2_key:
         return 'REMOVED'
     if old_value != new_value:
         return 'CHANGED'
@@ -59,3 +32,5 @@ def get_diff(dict1, dict2):
             })
 
     return diff
+
+# [{'key': 'follow', 'action': 'REMOVED', 'old value': False, 'new value': None}, {'key': 'host', 'action': 'UNCHANGED', 'old value': 'hexlet.io', 'new value': 'hexlet.io'}, {'key': 'proxy', 'action': 'REMOVED', 'old value': '123.234.53.22', 'new value': None}, {'key': 'timeout', 'action': 'CHANGED', 'old value': 50, 'new value': 20}, {'key': 'verbose', 'action': 'ADDED', 'old value': None, 'new value': True}]
