@@ -32,5 +32,3 @@ def get_diff(dict1, dict2):
             })
 
     return diff
-
-# [{'key': 'follow', 'action': 'REMOVED', 'old value': False, 'new value': None}, {'key': 'host', 'action': 'UNCHANGED', 'old value': 'hexlet.io', 'new value': 'hexlet.io'}, {'key': 'proxy', 'action': 'REMOVED', 'old value': '123.234.53.22', 'new value': None}, {'key': 'timeout', 'action': 'CHANGED', 'old value': 50, 'new value': 20}, {'key': 'verbose', 'action': 'ADDED', 'old value': None, 'new value': True}]

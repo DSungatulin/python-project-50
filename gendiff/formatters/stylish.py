@@ -10,16 +10,15 @@ def get_stylish_view(key, value, special_char, depth, indent):
 
     def walk(dict_, output, depth, indent):
         for key, value in dict_.items():
-            beginning = f'{INDENT_CHAR * INDENT_NUMBER * depth + key}: '
+            beginning = f'{(INDENT_CHAR * INDENT_NUMBER) * depth + key}: '
             if isinstance(value, dict):
                 output.append(
-                    beginning + walk(value, [], depth + 1, indent + INDENT_CHAR * INDENT_NUMBER)  # noqa: E501
+                    beginning + walk(value, [], depth + 1, indent + (INDENT_CHAR * INDENT_NUMBER))  # noqa: E501
                 )
             else:
                 output.append(beginning + get_data_format(value))
         return (
-            '{\n' + '\n'.join(output)
-            + f'\n{indent + INDENT_CHAR[0:-LEFTWARD_SHIFT]}' + '}'
+            '{\n' + '\n'.join(output) + f'\n{indent + (INDENT_CHAR*INDENT_NUMBER)[0:-LEFTWARD_SHIFT]}' + '}'  # noqa: E501
         )
 
     if isinstance(value, dict):
@@ -47,7 +46,7 @@ def form_string(key, action, old_value, new_value, depth, indent):
 def get_stylished(diff):
 
     def walk(diff, output, depth):
-        indent = (INDENT_CHAR * INDENT_NUMBER * depth)[0:-LEFTWARD_SHIFT]
+        indent = ((INDENT_CHAR * INDENT_NUMBER) * depth)[0:-LEFTWARD_SHIFT]
         for entry in diff:
             key = entry['key']
             nested = entry.get('nested')
@@ -55,7 +54,7 @@ def get_stylished(diff):
             if nested:
                 output.append(indent + special_char + key + ': {')
                 walk(nested, output, depth + 1)
-                output.append(indent + INDENT_CHAR * INDENT_NUMBER[0:-LEFTWARD_SHIFT] + '}')
+                output.append(indent + (INDENT_CHAR * INDENT_NUMBER)[0:-LEFTWARD_SHIFT] + '}')  # noqa: E501
             else:
                 action = entry['action']
                 old_value = entry['old value']

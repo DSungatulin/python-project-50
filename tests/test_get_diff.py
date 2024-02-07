@@ -1,4 +1,4 @@
-from fixtures.expected_result_for_test_get_diff import expected_result
+from tests.fixtures.expected_output_for_test_get_diff import expected_result
 from gendiff.diff_determinant import get_diff
 
 
