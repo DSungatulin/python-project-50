@@ -13,12 +13,12 @@ def get_stylish_view(key, value, special_char, depth, indent):
             beginning = f'{(INDENT_CHAR * INDENT_NUMBER) * depth + key}: '
             if isinstance(value, dict):
                 output.append(
-                    beginning + walk(value, [], depth + 1, indent + (INDENT_CHAR * INDENT_NUMBER))  # noqa: E501
+                    beginning + walk(value, [], depth + 1, indent + (INDENT_CHAR * INDENT_NUMBER))
                 )
             else:
                 output.append(beginning + get_data_format(value))
         return (
-            '{\n' + '\n'.join(output) + f'\n{indent + (INDENT_CHAR*INDENT_NUMBER)[0:-LEFTWARD_SHIFT]}' + '}'  # noqa: E501
+            '{\n' + '\n'.join(output) + f'\n{indent + (INDENT_CHAR*INDENT_NUMBER)[0:-LEFTWARD_SHIFT]}' + '}'
         )
 
     if isinstance(value, dict):
@@ -54,7 +54,7 @@ def get_stylished(diff):
             if nested:
                 output.append(indent + special_char + key + ': {')
                 walk(nested, output, depth + 1)
-                output.append(indent + (INDENT_CHAR * INDENT_NUMBER)[0:-LEFTWARD_SHIFT] + '}')  # noqa: E501
+                output.append(indent + (INDENT_CHAR * INDENT_NUMBER)[0:-LEFTWARD_SHIFT] + '}')
             else:
                 action = entry['action']
                 old_value = entry['old value']
