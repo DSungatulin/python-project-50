@@ -52,22 +52,22 @@ gendiff [-f FORMAT] first_file second_file
 ## Usage examples
 
 ### Help view
-![](https://github.com/DSungatulin/python-project-50/work_examples/blob/main/help_view_example.gif)
+![](https://github.com/DSungatulin/python-project-50/blob/main/work_examples/help_view_example.gif)
 
 ### Flat JSON file comparison
-![](https://github.com/DSungatulin/python-project-50/work_examples/blob/main/flat_json_comparison_example.gif)
+![](https://github.com/DSungatulin/python-project-50/blob/main/work_examples/flat_json_comparison_example.gif)
 
 ### Flat YAML file comparison
-![](https://github.com/DSungatulin/python-project-50/work_examples/blob/main/flat_yaml_comparison_example.gif)
+![](https://github.com/DSungatulin/python-project-50/blob/main/work_examples/flat_yaml_comparison_example.gif)
 
 ### Nested JSON file comparison
-![](https://github.com/DSungatulin/python-project-50/work_examples/blob/main/nested_json_comparison_example.gif)
+![](https://github.com/DSungatulin/python-project-50/blob/main/work_examples/nested_json_comparison_example.gif)
 
 ### Nested YAML file comparison
-![](https://github.com/DSungatulin/python-project-50/work_examples/blob/main/nested_yaml_comparison_example.gif)
+![](https://github.com/DSungatulin/python-project-50/blob/main/work_examples/nested_yaml_comparison_example.gif)
 
 ### Plain output format
-![](https://github.com/DSungatulin/python-project-50/work_examples/blob/main/plain_format_example.gif)
+![](https://github.com/DSungatulin/python-project-50/blob/main/work_examples/plain_format_example.gif)
 
 ### JSON output format
-![](https://github.com/DSungatulin/python-project-50/work_examples/blob/main/json_format_example.gif)
+![](https://github.com/DSungatulin/python-project-50/blob/main/work_examples/json_format_example.gif)

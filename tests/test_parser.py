@@ -1,5 +1,5 @@
 import pytest
-from gendiff.parser import parse_file, determine_file_format
+from gendiff.parser import determine_file_format
 
 
 def test_determine_file_format():
