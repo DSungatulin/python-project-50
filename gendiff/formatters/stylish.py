@@ -18,7 +18,7 @@ def get_stylish_view(key, value, special_char, depth, indent):
             else:
                 output.append(beginning + get_data_format(value))
         return (
-            '{\n' + '\n'.join(output) + f'\n{indent + (INDENT_CHAR*INDENT_NUMBER)[0:-LEFTWARD_SHIFT]}' + '}'  # noqa: E226
+            '{\n' + '\n'.join(output) + f'\n{indent + (INDENT_CHAR * INDENT_NUMBER)[0:-LEFTWARD_SHIFT]}' + '}'
         )
 
     if isinstance(value, dict):

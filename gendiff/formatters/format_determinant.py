@@ -3,7 +3,7 @@ def get_data_format(value):
         if value is None:
             data_format = 'null'
         elif isinstance(value, str):
-            data_format = f"'{value}'"
+            data_format = f'{str(value)}'
         else:
             data_format = str(value).lower()
     else:
