@@ -21,4 +21,4 @@ def generate_diff(filepath1, filepath2, output_format='stylish'):
             + 'Available formats are: "stylish", "plain", "json".'
         )
 
-    return apply_format(get_diff(config1, config2)).replace("'", "")
+    return apply_format(get_diff(config1, config2)).replace("'","")
