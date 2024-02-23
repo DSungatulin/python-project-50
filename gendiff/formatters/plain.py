@@ -35,4 +35,4 @@ def get_plained(diff):
                 ))
         return output
 
-    return '\n'.join(walk(diff, [], []))
+    return '\n'.join(walk(diff, [], [])).replace("'[complex value]'", "[complex value]")
