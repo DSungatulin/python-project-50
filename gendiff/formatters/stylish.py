@@ -1,4 +1,4 @@
-from gendiff.formatters.format_determinant import get_data_format
+from gendiff.formatters.format_determinant import get_data_format_stylish
 
 
 INDENT_CHAR = ' '
@@ -16,7 +16,7 @@ def get_stylish_view(key, value, special_char, depth, indent):
                     beginning + walk(value, [], depth + 1, indent + (INDENT_CHAR * INDENT_NUMBER))
                 )
             else:
-                output.append(beginning + get_data_format(value))
+                output.append(beginning + get_data_format_stylish(value))
         return (
             '{\n' + '\n'.join(output) + f'\n{indent + (INDENT_CHAR * INDENT_NUMBER)[0:-LEFTWARD_SHIFT]}' + '}'
         )
@@ -24,7 +24,7 @@ def get_stylish_view(key, value, special_char, depth, indent):
     if isinstance(value, dict):
         formatted = walk(value, [], depth + 1, indent)
     else:
-        formatted = get_data_format(value)
+        formatted = get_data_format_stylish(value)
 
     return f'{indent + special_char + key}: {formatted}'
 

@@ -1,15 +1,26 @@
-from gendiff.formatters.format_determinant import get_data_format
+from gendiff.formatters.format_determinant import get_data_format_plain
 
+
+def get_data_format(value):
+    if isinstance(value, dict):
+        return '[complex value]'
+    if isinstance(value, bool):
+        return str(value).lower()
+    if isinstance(value, str):
+        return f"'{str(value)}'"
+    if value is None:
+        return 'null'
+    return str(value)
 
 def get_plain_view(path, action, old_value, new_value):
     beginning = f"Property '{path}' was"
     if action == 'ADDED':
-        return f"{beginning} added with value: '{get_data_format(new_value)}'"
+        return f"{beginning} added with value: {get_data_format_plain(new_value)}"
     if action == 'REMOVED':
         return f"{beginning} removed"
     if action == 'CHANGED':
         return (
-            f"{beginning} updated. From '{get_data_format(old_value)}' to '{get_data_format(new_value)}'"
+            f"{beginning} updated. From {get_data_format_plain(old_value)} to {get_data_format_plain(new_value)}"
         )
 
 
@@ -35,4 +46,4 @@ def get_plained(diff):
                 ))
         return output
 
-    return '\n'.join(walk(diff, [], [])).replace("'[complex value]'", "[complex value]")
+    return '\n'.join(walk(diff, [], []))
