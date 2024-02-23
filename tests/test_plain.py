@@ -6,6 +6,7 @@ def test_get_plain_view():
     assert get_plain_view('path_to_property', 'REMOVED', 'old_value', None) == "Property 'path_to_property' was removed"
     assert get_plain_view('path_to_property', 'CHANGED', 'old_value', 'new_value') == "Property 'path_to_property' was updated. From 'old_value' to 'new_value'"
 
+
 def test_get_plained():
     diff = [
         {

@@ -8,6 +8,7 @@ def test_determine_file_format():
     assert file1 == {'follow': False, 'host': 'hexlet.io', 'proxy': '123.234.53.22', 'timeout': 50}
     assert file2 == {'host': 'hexlet.io', 'timeout': 20, 'verbose': True}
 
+
 def test_determine_file_format_invalid():
     with pytest.raises(TypeError) as excinfo:
         determine_file_format('tests/fixtures/comparison_results/correct_flat_comparison.txt')
