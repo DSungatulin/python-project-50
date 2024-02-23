@@ -12,6 +12,7 @@ def get_data_format(value):
         return 'null'
     return str(value)
 
+
 def get_plain_view(path, action, old_value, new_value):
     beginning = f"Property '{path}' was"
     if action == 'ADDED':
