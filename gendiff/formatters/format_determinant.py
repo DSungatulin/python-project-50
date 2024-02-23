@@ -1,18 +1,22 @@
 def get_data_format_stylish(value):
     if isinstance(value, str):
-        return value
+        data_format = value
     elif value is None:
-        return 'null'
-    return str(value).lower()
+        data_format = 'null'
+    else:
+        data_format = str(value).lower()
+    return data_format
 
 
 def get_data_format_plain(value):
     if isinstance(value, dict):
-        return '[complex value]'
+        data_format = '[complex value]'
     elif isinstance(value, bool):
-        return str(value).lower()
+        data_format = str(value).lower()
     elif isinstance(value, str):
-        return f"'{value}'"
+        data_format = f"'{value}'"
     elif value is None:
-        return 'null'
-    return str(value)
+        data_format = 'null'
+    else:
+        data_format = str(value)
+    return data_format
