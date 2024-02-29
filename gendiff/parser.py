@@ -17,12 +17,20 @@ def parse_file():
     return parser.parse_args()
 
 
-def determine_file_format(filepath):
+def get_file_format(filepath):
+    if filepath.endswith('.json'):
+        return 'json'
+    elif filepath.endswith('.yml') or filepath.endswith('.yaml'):
+        return 'yaml'
+    else:
+        raise TypeError("Invalid file format!")
+
+
+def read_file_data(filepath):
     with open(filepath) as file:
-        if filepath.endswith('.json'):
-            data = json.load(file)
-        elif filepath.endswith('.yml') or filepath.endswith('.yaml'):
-            data = yaml.safe_load(file)
+        if get_file_format(filepath) == 'json':
+            return json.load(file)
+        elif get_file_format(filepath) == 'yaml':
+            return yaml.safe_load(file)
         else:
             raise TypeError("Invalid file format!")
-        return data
