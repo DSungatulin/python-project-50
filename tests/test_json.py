@@ -1,5 +1,5 @@
 import json
-from gendiff.formatters.json import json_format
+from gendiff.formatters.json import get_jsoned
 
 
 def test_json_format():
@@ -11,4 +11,4 @@ def test_json_format():
         }
     }
     expected_output = json.dumps(data, indent=2)
-    assert json_format(data) == expected_output
+    assert get_jsoned(data) == expected_output
