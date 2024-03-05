@@ -9,10 +9,10 @@ def test_read_json_file_data():
 
 
 def test_read_yaml_file():
-        filepath = 'tests/fixtures/flat_files/file2.yml'
-        expected_data = {'host': 'hexlet.io', 'timeout': 20, 'verbose': True}
-        actual_data = read_file_data(filepath)
-        assert actual_data == expected_data
+    filepath = 'tests/fixtures/flat_files/file2.yml'
+    expected_data = {'host': 'hexlet.io', 'timeout': 20, 'verbose': True}
+    actual_data = read_file_data(filepath)
+    assert actual_data == expected_data
 
 
 def test_determine_file_format():
